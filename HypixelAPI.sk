@@ -1,5 +1,5 @@
 options:
-	#Get your API key by logging onto 'mc.hypixel.net' and typing '/api new' [Note: Mods may generate a new API key.]
+	#Get your API key by logging onto 'mc.hypixel.net' and typing '/api new' [Note: Mods like 5Zig may generate a new API key.]
 	APIKey: Insert your API Key here!
 
 function url(url: text) :: text:
