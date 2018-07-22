@@ -1,0 +1,39 @@
+options:
+	#Get your API key by logging onto 'mc.hypixel.net' and typing '/api new' [Note: Mods may generate a new API key.]
+	APIKey: Insert your API Key here!
+
+function url(url: text) :: text:
+    replace all "§" with "&" in {_url}
+    return {_url}
+
+
+
+#Paste this code wherever you want to use the Hypixel API (Without the #'s of course.)
+#	send a request to url("https://api.hypixel.net/player?key={@APIKey}&name=%{_name}%") with header "User-Agent: SpigotMC"
+#	map json body of last http response to {_results::*}
+
+
+
+#Quick example I made to get the rank of a player
+command /hypixelranks <text>:
+	Usage: /hypixelranks <IGN>
+	trigger:
+		send a request to url("https://api.hypixel.net/player?key={@APIKey}&name=%arg-1%") with header "User-Agent: SpigotMC"
+		map json body of last http response to {_results::*}
+		if {_results::success} is "false":
+			send "API Request Failed!"
+		else:
+			if {_results::player::monthlyPackageRank} is "SUPERSTAR": #Don't ask, the Hypixel API is just weird....
+				set {_rank} to "MVP++"
+			else:
+				if {_results::player::newPackageRank} is set:
+					set {_rank} to {_results::player::newPackageRank}
+				if {_results::player::rank} is set:
+					set {_rank} to "%{_results::player::rank}%"
+				else if {_results::player::newPackageRank} is not set:
+					set {_rank} to "none"
+			send "%arg-1%'s Hypixel rank: %{_rank}%"
+
+#Go to 'https://gaminggeekhd.tk/Quig.json' to see an example of the raw JSON response the API gives (Note: I used a JSON formatter to get it to look better)
+#This example was taken on Saturday June 30th, so the data is most likely incorrect.
+	
