@@ -19,6 +19,7 @@ Skript (of course), Reqn and skript-json
 # Downloads
 
 Skript:
-1.8 (Not Supported) and 1.9+: https://github.com/SkriptLang/Skript/releases/download/dev36/Skript.jar
-Reqn: https://forums.skunity.com/resources/reqn.95/
+Minecraft 1.9+: https://github.com/SkriptLang/Skript/releases/download/dev36/Skript.jar                                 
+(It may work with 1.8, but I will not provide support for it)                                
+Reqn: https://forums.skunity.com/resources/reqn.95/                                  
 Skript-JSON: https://forums.skunity.com/resources/skript-json.151/
